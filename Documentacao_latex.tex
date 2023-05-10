@@ -1,0 +1,190 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Calcular a determinante pela lei de leibniz}
+\author{Ryam Sousa e Pedro Lucas}
+\date{10/05/2023}
+
+\begin{document}
+
+    \maketitle
+    \section{Fórmula de laplace}
+    
+    
+    \[
+    \det(A) = \sum_{\sigma \in S_4} \left( \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(\sigma)} a_{i\sigma(i)} \right)
+    \] \newline
+    Permutações possíveis com '1234'\newline\\
+    \ {S}$_4$ = \{'1234', '1243', '1324', '1432', '1342', '1423', 
+    '2134', '2143', '2314', '2431', '2413', '2341', 
+    '3214', '3124', '3241', '3412', '3142', '3421', 
+    '4231', '4132', '4213', '4321', '4123', '4312'\} \newline
+    
+    \section{Produtória na prática}
+    
+    \[
+    det(A)=
+    \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(1234')} a_{i1234'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(1243')} a_{i1243'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(1324')} a_{i1324'(i)} 
+    \]\newline
+    \[
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(1432')} a_{i1432'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(1342')} a_{i1342'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(1423')} a_{i1423'(i)}
+    \]\newline
+    \[
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(2134')} a_{i2134'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(2143')} a_{i2143'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(2314')} a_{i2314'(i)} 
+    \]\newline
+    \[
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(2431')} a_{i2431'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(2413')} a_{i2413'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(2341')} a_{i2341'(i)} 
+    \]\newline
+    \[
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(3214')} a_{i3214'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(3124')} a_{i3124'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(3241')} a_{i3241'(i)} 
+    \]\newline
+    \[
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(3412')} a_{i3412'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(3142')} a_{i3142'(i)} 
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(3421')} a_{i3421'(i)} 
+    \]\newline
+    \[
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(4231')} a_{i4231'(i)}
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(4132')} a_{i4132'(i)}
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(4213')} a_{i4213'(i)} 
+    \]\newline
+    \[
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(4321')} a_{i4321'(i)}
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(4123')} a_{i4123'(i)}
+    + \prod_{i=1}^{4} (-1)^{\mathrm{sgn}(4312')} a_{i4312'(i)}
+    \]\newline\\
+    Exemplificando a produtória
+    \[
+    a_{1_1}.a_{2_2}.a_{3_3}.a_{4_4} - a_{1_1}.a_{2_2}.a_{3_4}.a_{4_3} - a_{1_1}.a_{2_3}.a_{3_2}.a_{4_4} + a_{1_1}.a_{2_3}.a_{3_4}.a_{4_2} - a_{1_1}.a_{2_4}.a_{3_3}.a_{4_2}
+    \]
+    \[
+    + a_{1_1}.a_{2_4}.a_{3_2}.a_{4_3} - a_{1_2}.a_{2_1}.a_{3_3}.a_{4_4} + a_{1_2}.a_{2_1}.a_{3_4}.a_{4_3} + a_{1_2}.a_{2_3}.a_{3_1}.a_{4_4} + a_{1_2}.a_{2_4}.a_{3_3}.a_{4_1}
+    \]
+    \[
+    - a_{1_2}.a_{2_4}.a_{3_1}.a_-{4_3} - a_{1_2}.a_{2_3}.a_{3_4}.a_{4_1} - a_{1_3}.a_{2_2}.a_{3_1}.a_{4_4} + a_{1_3}.a_{2_1}.a_{3_2}.a_{4_4} + a_{1_3}.a_{2_2}.a_{3_4}.a_{4_1}
+    \]
+    \[
+    + a_{1_3}.a_{2_4}.a_{3_1}.a_{4_2} - a_{1_3}.a_{2_1}.a_{3_4}.a_{4_2} - a_{1_3}.a_{2_4}.a_{3_2}.a_{4_1} - a_{1_4}.a_{2_2}.a_{3_3}.a_{4_1} + a_{1_4}.a_{2_1}.a_{3_3}.a_{4_2}
+    \]
+    \[
+    + a_{1_4}.a_{2_2}.a_{3_1}.a_{4_3} + a_{1_4}.a_{2_3}.a_{3_2}.a_{4_1} - a_{1_4}.a_{2_1}.a_{3_2}.a_{4_3} - a_{1_4}.a_{2_3}.a_{3_1}.a_{4_2} 
+    \]
+    \[\newline\]
+
+    \section{Número de trocas de todas as permutação}
+    
+        \[ '1234' = 0 \hspace{1cm} '2134' = 1 \hspace{1cm} '3214' = 1 \hspace{1cm} '4231' = 1\] 
+        \[ '1243' = 1 \hspace{1cm} '2143' = 2 \hspace{1cm} '3124' = 2 \hspace{1cm} '4132' = 2\] 
+        \[ '1324' = 1 \hspace{1cm} '2314' = 2 \hspace{1cm} '3241' = 2 \hspace{1cm} '4213' = 2\] 
+        \[ '1432' = 1 \hspace{1cm} '2431' = 2 \hspace{1cm} '3412' = 2 \hspace{1cm} '4321' = 2\]
+        \[ '1342' = 2 \hspace{1cm} '2413' = 3 \hspace{1cm} '3142' = 3 \hspace{1cm} '4123' = 3\] 
+        \[ '1423' = 2 \hspace{1cm} '2341' = 3 \hspace{1cm} '3421' = 3 \hspace{1cm} '4312' = 3\] 
+    
+    \section {Aplicando a fórmula com os exemplos abaixos}
+    
+        \[
+        A = 
+        \left[
+            \begin{array}{cccc}
+                    1 & 1 & 1 & 1 \\
+                    2 & 2 & 2 & 2 \\
+                    3 & 3 & 3 & 3 \\
+                    4 & 4 & 4 & 4\\
+            \end{array}
+        \right]
+        $$  
+        \[1. 2. 3. 4 - 1.2.3.4 - 1.2.3.4 + 1.2.3.4 + 1.2.3.4 - 1.2.3.4 \]
+        \[- 1.2.3.4 + 1.2.3.4 + 1.2.3.4 - 1.2.3.4 - 1.2.3.4+ 1.2.3.4 \] 
+        \[+ 1.2.3.4 - 1.2.3.4 - 1.2.3.4 + 1.2.3.4 + 1.2.3.4 - 1.2.3.4 \] 
+        \[- 1.2.3.4 + 1.2.3.4 + 1.2.3.4 - 1.2.3.4 - 1.2.3.4 + 1.2.3.4\]
+    
+        \[ A = 24 - 24 - 24 + 24 + 24 - 24 - 24 + 24 + 24 - 24 - 24 - 24 \]
+    
+        \[ + 24 + 24 - 24 - 24 + 24 + 24 - 24 - 24 + 24 + 24 - 24 - 24\]
+    
+        \[
+        A = 0
+        \]        
+        \[\newline\]
+    
+        
+        
+        \[\newline\]
+        \[
+        A = 
+        \left[
+            \begin{array}{cccc}
+                    1 & 0 & 1 & 2 \\
+                    3 & 2 & 1 & 1 \\
+                    1 & 2 & 2 & 1 \\
+                    1 & 1 & 1 & 3 \\
+            \end{array}
+        \right]
+        $$
+        \[\newline\] 
+        
+        \[ A = 1.2.2.3 - 1.2.1.1 - 1.1.2.3 + 1.1.1.1 + 1.1.2.1 - 1.1.2.1 - 0.3.2.3\] 
+        \[ + 1.3.2.3 - 1.3.1.1 - 1.2.1.3 + 1.2.1.1 + 1.1.1.1 - 1.1.2.1 - 2.3.2.1\] 
+        \[+ 2.3.2.1 + 2.2.1.1 - 2.2.2.1 - 2.1.1.1 + 2.1.2.1\]
+        
+        \[ A =  12 - 2 - 6 + 1 + 2 - 2  - 0 + 18 \] 
+        \[- 3 - 6 + 2 + 1 - 2 - 12 + 12 + 4 \] 
+        \[- 8 - 2 + 4 \]
+        
+        \[ A = 13 \]
+        \[\newline\]
+        \[\newline\]
+        \[\newline\]
+    
+    \section{Código}
+    $def calcular_determinante_leibniz(m):\\$
+    
+        if len(m) == 2:\\
+    
+            \hspace{1cm}return m[0][0] * m[1][1] - m[0][1] * m[1][0]\\
+    
+        det4x4 = 0\\
+        
+        for col in range(len(m)):\\
+            
+            \hspace{1cm}matriz2x2 = [row[0:col] + row[col + 1:] for row in m[1:]]\\
+            
+            \hspace{1cm}cofator = (-1) ** col * m[0][col]\\
+    
+            $\hspace{1cm}det2x2 = calcular_determinante_leibniz(matriz2x2)\\$
+            
+            \hspace{1cm}det4x4 += cofator * det2x2\\
+    
+        return det4x4\newline\\
+    
+    
+    \hspace{-0,5cm}matriz = [[1, 1, 1, 1],
+              [2, 2, 2, 2],
+              [3, 3, 3, 3],
+              [4, 4, 4, 4]]\\
+    
+    \hspace{-0,5cm}matriz1 = [[1, 0, 1, 2],
+               [3, 2, 1, 1],
+               [1, 2, 2, 1],
+               [1, 1, 1, 3]]\\
+    
+    $\hspace{-0,5cm}d = calcular_determinante_leibniz(matriz)\\$
+
+    $\hspace{-0,5cm}d1 = calcular_determinante_leibniz(matriz1)\\$
+
+    \hspace{-0,5cm}print("Determinante da matriz um:  ", d)\\
+    
+    \hspace{-0,5cm}print("Determinante da matriz dois:", d1)\\
+    \[\newline\]
+    
+\end{document}
